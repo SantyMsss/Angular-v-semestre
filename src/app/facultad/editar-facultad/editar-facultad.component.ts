@@ -56,7 +56,7 @@ export class EditarFacultadComponent implements OnInit {
   editarFacultad(facultad: Facultad) {
     this.facultadService.editarFacultad(facultad).subscribe( // Le decimos al servicio que edite la facultad
       (facultad: Facultad) => {
-        // Mostramos un mensaje de éxito al usuario usando SweetAlert
+       
         Swal.fire(
           'Facultad editada',
           `La facultad ${facultad.nombreFacu} ha sido actualizada con éxito`,
@@ -65,7 +65,7 @@ export class EditarFacultadComponent implements OnInit {
         this.router.navigate(['/listar']); // Redirecciona a la ruta /listar
       },
       error => {
-        // Mostramos un mensaje de error al usuario usando SweetAlert
+
         Swal.fire(
           'Error',
           'Ha ocurrido un error al actualizar la facultad',
@@ -83,7 +83,7 @@ export class EditarFacultadComponent implements OnInit {
       const facultadEditada: Facultad = { ...this.facultad, ...this.editarFacultadForm.value }; // Combinamos la facultad original con los nuevos valores
       this.editarFacultad(facultadEditada); // Llamamos al método para editar la facultad
     } else {
-      // Mostramos un mensaje de error al usuario usando SweetAlert
+
       Swal.fire(
         'Formulario inválido',
         'Por favor, complete el formulario correctamente',
@@ -99,18 +99,18 @@ export class EditarFacultadComponent implements OnInit {
     const idFacultad = parseInt(this.route.snapshot.params['id']); // Obtenemos el id de la facultad a editar
 
     this.facultadService.getFacultad(idFacultad).subscribe((facultad) => { // Le decimos al servicio que nos traiga la facultad a editar
-      this.facultad = facultad; // Obtenemos la facultad a editar
+      this.facultad = facultad;
       // Creamos el formulario editarFacultadForm con los valores actuales de la facultad
       this.editarFacultadForm = this.formBuilder.group({
-        nombreFacu: [this.facultad.nombreFacu, [Validators.required, Validators.minLength(4)]], // Mostramos el nombre de la facultad
-        decano: [this.facultad.decano, [Validators.required, Validators.minLength(4)]], // Mostramos el nombre del decano
-        modalidad: [this.facultad.modalidad, [Validators.required, Validators.minLength(4)]], // Mostramos la modalidad
-        proyecInvestFacu: [this.facultad.proyecInvestFacu, [Validators.required, Validators.minLength(4)]], // Mostramos el proyecto de investigación
-        descripcion: [this.facultad.descripcion, [Validators.required, Validators.minLength(4)]], // Mostramos la descripción
-        telefono: [this.facultad.telefono, [Validators.required, Validators.pattern(/^[0-9]+$/)]], // Mostramos el teléfono
-        correo: [this.facultad.correo, [Validators.required, Validators.email]], // Mostramos el correo
-        programasAcademicos: [this.facultad.programasAcademicos, [Validators.required, Validators.minLength(4)]], // Mostramos los programas académicos
-        calendarioAcademico: [this.facultad.calendarioAcademico, [Validators.required, Validators.minLength(4)]] // Mostramos el calendario académico
+        nombreFacu: [this.facultad.nombreFacu, [Validators.required, Validators.minLength(4)]],
+        decano: [this.facultad.decano, [Validators.required, Validators.minLength(4)]],
+        modalidad: [this.facultad.modalidad, [Validators.required, Validators.minLength(4)]],
+        proyecInvestFacu: [this.facultad.proyecInvestFacu, [Validators.required, Validators.minLength(4)]],
+        descripcion: [this.facultad.descripcion, [Validators.required, Validators.minLength(4)]],
+        telefono: [this.facultad.telefono, [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+        correo: [this.facultad.correo, [Validators.required, Validators.email]],
+        programasAcademicos: [this.facultad.programasAcademicos, [Validators.required, Validators.minLength(4)]],
+        calendarioAcademico: [this.facultad.calendarioAcademico, [Validators.required, Validators.minLength(4)]]
       });
     });
   }
