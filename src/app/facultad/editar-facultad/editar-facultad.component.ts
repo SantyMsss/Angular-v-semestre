@@ -56,7 +56,7 @@ export class EditarFacultadComponent implements OnInit {
   editarFacultad(facultad: Facultad) {
     this.facultadService.editarFacultad(facultad).subscribe( // Le decimos al servicio que edite la facultad
       (facultad: Facultad) => {
-       
+
         Swal.fire(
           'Facultad editada',
           `La facultad ${facultad.nombreFacu} ha sido actualizada con éxito`,
