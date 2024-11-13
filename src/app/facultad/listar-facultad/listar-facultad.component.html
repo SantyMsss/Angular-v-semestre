@@ -13,6 +13,8 @@
     <tr>
       <th scope="col">Código</th>
       <th scope="col">Nombre</th>
+
+      <!--
       <th scope="col">Decano</th>
       <th scope="col">Modalidad</th>
       <th scope="col">Proyecto de Investigacion</th>
@@ -22,6 +24,7 @@
       <th scope="col">Correo</th>
       <th scope="col">Programa Académico</th>
       <th scope="col">Calendario Academico</th>
+      -->
       <th scope="col">Eliminar</th>
     </tr>
     </thead>
@@ -31,6 +34,7 @@
       <tr>
         <td (click)="onSelected(facultad)" class="clickable text-center">{{facultad.codigo_facu}}</td>
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.nombre_facu}}</td>
+        <!--
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.decano}}</td>
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.modalidad}}</td>
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.proyec_invest_facu}}</td>
@@ -40,6 +44,7 @@
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.correo}}</td>
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.prog_academico}}</td>
         <td (click)="onSelected(facultad)" class="clickable">{{facultad.calendar_academico}}</td>
+        -->
         <td (click)="borrarFacultad(facultad)"  class="clickable text-center">
           <button type="button" class="btn btn-danger">Eliminar</button>
         </td>
