@@ -36,7 +36,7 @@
 
 /* Celda interactiva (clickable) */
 .clickable {
-  cursor: pointer;
+  facultadr: pointer;
   transition: background-color 0.3s ease;
 }
 
