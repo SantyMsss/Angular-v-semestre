@@ -1,0 +1,45 @@
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-body">
+    <h5 class="card-title">Crear Facultad</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Datos de facultad</h6>
+
+    <form [formGroup]="crearFacultadForm" (ngSubmit)="crearCurso(crearFacultadForm.value)">
+      <div class="row">
+        <div class="col">
+
+          <!--   Campo nombre de la facultad   -->
+          <label for="facultad">Facultad</label>
+          <input id="facultad"
+                 type="text"
+                 name="facultad"
+                 placeholder="Escriba el nombre de la facultad aqui"
+                 formControlName="facultad"
+                 class="form-control"
+          >
+
+          <!-- Campo programa del curso -->
+          <label for="programa">Programa</label>
+          <input id="programa"
+                 type="text"
+                 name="programa"
+                 placeholder="Ingrese el programa al que pertenece"
+                 formControlName="programa"
+                 class="form-control"
+          >
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center mt-3">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block">Crear facultad</button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-danger btn-block" (click)="cancelarCrearFacultad()">Cancelar</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
