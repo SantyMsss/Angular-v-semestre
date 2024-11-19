@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ListarfacultadsComponent} from "./listar-facultads/listar-facultads.component";
-import {CrearfacultadComponent} from "./crear-facultad/crear-facultad.component";
-import {DetallefacultadComponent} from "./detalle-facultad/detalle-facultad.component";
-import {EditarfacultadComponent} from "./editar-facultad/editar-facultad.component";
+import {ListarFacultadComponent} from "./listar-facultad/listar-facultad.component";
+import {CrearFacultadComponent} from "./crear-facultad/crear-facultad.component";
+import {DetalleFacultadComponent} from "./detalle-facultad/detalle-facultad.component";
+import {EditarFacultadComponent} from "./editar-facultad/editar-facultad.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: ListarfacultadsComponent
+    component: ListarFacultadComponent
   },
   {
     path: 'listar',
-    component: ListarfacultadsComponent
+    component: ListarFacultadComponent
   },
   {
     path: 'crear',
-    component: CrearfacultadComponent
+    component: CrearFacultadComponent
   },
   {
     path: 'detalle/:id',
-    component: DetallefacultadComponent
+    component: DetalleFacultadComponent
   },
   {
     path: 'editar/:id',
-    component: EditarfacultadComponent
+    component: EditarFacultadComponent
   }
   ];
 

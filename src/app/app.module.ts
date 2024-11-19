@@ -6,18 +6,23 @@ import { AppComponent } from './app.component';
 import { ListarFacultadComponent } from './facultad/listar-facultad/listar-facultad.component';
 import { DetalleFacultadComponent } from './facultad/detalle-facultad/detalle-facultad.component';
 import { EditarFacultadComponent } from './facultad/editar-facultad/editar-facultad.component';
+import { CrearFacultadComponent } from './facultad/crear-facultad/crear-facultad.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CrearFacultadComponent,
     ListarFacultadComponent,
-    DetalleFacultadComponent
-    EditarFacultadComponent
+    DetalleFacultadComponent,
+    EditarFacultadComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
