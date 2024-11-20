@@ -7,5 +7,5 @@ import { Facultad } from "../model/facultad";
   styleUrls: ['./detalle-facultad.component.css']
 })
 export class DetalleFacultadComponent {
-  @Input() facultad! facultad;
+  @Input() facultad!: Facultad;
 }

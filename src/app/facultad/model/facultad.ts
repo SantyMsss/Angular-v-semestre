@@ -5,7 +5,7 @@ export class Facultad {
   public codigo_facu!: number;
   public nombre_facu!: string;
   public decano!: string;
-  private modalidad!: string;
+  public modalidad!: string;
   public proyec_invest_facu!: string;
   public descripcion!: string;
   public fecha_crea!: Date;

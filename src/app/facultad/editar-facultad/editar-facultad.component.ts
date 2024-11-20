@@ -59,7 +59,7 @@ export class EditarFacultadComponent implements OnInit {
 
         Swal.fire(
           'Facultad editada',
-          `La facultad ${facultad.nombreFacu} ha sido actualizada con éxito`,
+          `La facultad ${facultad.nombre_facu} ha sido actualizada con éxito`,
           'success'
         );
         this.router.navigate(['/listar']); // Redirecciona a la ruta /listar
@@ -102,15 +102,15 @@ export class EditarFacultadComponent implements OnInit {
       this.facultad = facultad;
       // Creamos el formulario editarFacultadForm con los valores actuales de la facultad
       this.editarFacultadForm = this.formBuilder.group({
-        nombreFacu: [this.facultad.nombreFacu, [Validators.required, Validators.minLength(4)]],
+        nombreFacu: [this.facultad.nombre_facu, [Validators.required, Validators.minLength(4)]],
         decano: [this.facultad.decano, [Validators.required, Validators.minLength(4)]],
         modalidad: [this.facultad.modalidad, [Validators.required, Validators.minLength(4)]],
-        proyecInvestFacu: [this.facultad.proyecInvestFacu, [Validators.required, Validators.minLength(4)]],
+        proyecInvestFacu: [this.facultad.proyec_invest_facu, [Validators.required, Validators.minLength(4)]],
         descripcion: [this.facultad.descripcion, [Validators.required, Validators.minLength(4)]],
         telefono: [this.facultad.telefono, [Validators.required, Validators.pattern(/^[0-9]+$/)]],
         correo: [this.facultad.correo, [Validators.required, Validators.email]],
-        programasAcademicos: [this.facultad.programasAcademicos, [Validators.required, Validators.minLength(4)]],
-        calendarioAcademico: [this.facultad.calendarioAcademico, [Validators.required, Validators.minLength(4)]]
+        programasAcademicos: [this.facultad.prog_academico, [Validators.required, Validators.minLength(4)]],
+        calendarioAcademico: [this.facultad.calendar_academico, [Validators.required, Validators.minLength(4)]]
       });
     });
   }

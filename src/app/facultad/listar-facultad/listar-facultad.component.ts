@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Facultad} from "../model/facultad";
-import {facultadeservice} from "../service/facultad.service";
+import {FacultadService} from "../service/facultad.service";
 import Swal from "sweetalert2";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -16,8 +16,8 @@ export class ListarFacultadComponent implements OnInit {
   public facultadeselected!: Facultad;
   public selected: boolean = false;
 
-  constructor(private facultadeservice: facultadeservice, private routerPath: Router, private router: ActivatedRoute) {
-    this.facultadeservice.getfacultades().subscribe(
+  constructor(private facultadeservice: FacultadService, private routerPath: Router, private router: ActivatedRoute) {
+    this.facultadeservice.getFacultad().subscribe(
       (facultades: Array<Facultad>) => {
         this.facultades = facultades;
       }
@@ -44,7 +44,7 @@ export class ListarFacultadComponent implements OnInit {
     this.facultadeselected = Facultad;
     this.selected=true;
     // console.log(this.facultadeselected); //Imprime en la consola del navegador el Facultad seleccionado
-    this.routerPath.navigate(['/editar/' + this.facultadeselected.id]); //Redirecciona a la ruta /editar/:id
+    this.routerPath.navigate(['/editar/' + this.facultadeselected.codigo_facu]); //Redirecciona a la ruta /editar/:id
   }
 
   /**
@@ -62,7 +62,7 @@ export class ListarFacultadComponent implements OnInit {
       confirmButtonText: "Si, borra el Facultad!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.facultadeservice.borrarFacultad(Facultad.id).subscribe(() => { // Llama al servicio para eliminar el Facultad
+        this.facultadeservice.borrarFacultad(Facultad.codigo_facu).subscribe(() => { // Llama al servicio para eliminar el Facultad
           Swal.fire({
             title: "Eliminado!",
             text: "la facultad ha sido eliminada.",

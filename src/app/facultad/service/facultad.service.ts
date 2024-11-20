@@ -7,20 +7,12 @@ import {map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class FacultadService {
-  private baseUrl: string = "http://test.denkitronik.com"; //TODO: Agregar url del servicio
+  private baseUrl: string = "http://18.218.121.26:8080/api/v1/facultad-service"
 
   constructor(private httpClient: HttpClient) {
 
   }
 
-  getFacultad(): Observable<Facultad[]> {
-    return this.httpClient.get<Facultad[]>(this.baseUrl+"/facultades")
-      .pipe(
-        map((result:any)=>{
-          console.log(result._embedded.facultades);
-          return result._embedded.facultades;
-        }));
-  }
 
   getFacultad(idFacultad: number): Observable<Facultad> {
     return this.httpClient.get<Facultad>(this.baseUrl + '/facultades/' + idFacultad);
@@ -31,7 +23,7 @@ export class FacultadService {
   }
 
   editarFacultad(facultad: Facultad): Observable<Facultad> {
-    return this.httpClient.put<Facultad>(this.baseUrl+"/facultades/"+facultad.id, facultad);
+    return this.httpClient.put<Facultad>(this.baseUrl+"/facultades/"+facultad.codigo_facu, facultad);
   }
 
   borrarFacultad(idFacultad: number): Observable<any> {
