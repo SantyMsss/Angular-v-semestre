@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Facultad} from "../model/facultad";
 import {map, Observable, pipe} from "rxjs";
 
@@ -7,7 +7,7 @@ import {map, Observable, pipe} from "rxjs";
   providedIn: 'root'
 })
 export class FacultadService {
-  private baseUrl: string = "http://18.218.121.26:8080"
+  private baseUrl: string = `/facultades`;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -17,29 +17,25 @@ export class FacultadService {
   }
 
   getFacultades(): Observable<Facultad[]> {
-    return this.httpClient.get<Facultad[]>(this.baseUrl+"/facultades")
-      .pipe(
-        map((result:any)=>{
-          console.log(result._embedded.facultades);
-          return result._embedded.facultades;
-        }));
+    return this.httpClient.get<Facultad[]>(this.baseUrl)
   }
 
 
   getFacultad(codigo_facu: number): Observable<Facultad> {
-    return this.httpClient.get<Facultad>(this.baseUrl + '/facultades/' + codigo_facu);
+    return this.httpClient.get<Facultad>(`${this.baseUrl}/${codigo_facu}`);
   }
 
   crearFacultad(facultad: Facultad): Observable<Facultad> {
-    return this.httpClient.post<Facultad>(this.baseUrl+"/facultades", facultad);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.httpClient.post<Facultad>(this.baseUrl, facultad, {headers});
   }
-
   editarFacultad(facultad: Facultad): Observable<Facultad> {
-    return this.httpClient.put<Facultad>(this.baseUrl+"/facultades/"+facultad.codigo_facu, facultad);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.httpClient.put<Facultad>(`${this.baseUrl}/${facultad.codigo_facu}`, facultad, {headers});
   }
 
-  borrarFacultad(codigo_facu: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + "/facultades/" + codigo_facu);
+  borrarFacultad(codigo_facu: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/${codigo_facu}`);
   }
 
 }

@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './listar-facultad.component.html',
   styleUrls: ['./listar-facultad.component.css']
 })
-export class ListarFacultadComponent implements OnInit {
+export class ListarFacultadesComponent implements OnInit {
   public facultades: Array<Facultad> = [];
   public nombreFacultad!: string;
   public facultadeselected!: Facultad;
