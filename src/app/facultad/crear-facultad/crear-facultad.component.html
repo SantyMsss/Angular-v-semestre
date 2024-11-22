@@ -1,44 +1,47 @@
-<div class="card mx-auto" style="max-width: 500px;">
-  <div class="card-body">
-    <h5 class="card-title">Crear Facultad</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Datos de facultad</h6>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Facultades</title>
+  <link rel="stylesheet" href="crear-facultad.component.css"> <!-- Enlace al archivo CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Enlace a Bootstrap -->
+</head>
 
-    <form [formGroup]="crearFacultadForm" (ngSubmit)="crearCurso(crearFacultadForm.value)">
-      <div class="row">
-        <div class="col">
+<div class="card mx-auto shadow-lg" style="max-width: 500px; border-radius: 15px; overflow: hidden;">
+  <div class="card-header text-white text-center py-4" style="background-color: #27ae60;">
+    <h5 class="card-title mb-1">Crear Facultad</h5>
+    <h6 class="card-subtitle text-light">Datos de la Facultad</h6>
+  </div>
+  <div class="card-body p-4">
+    <form [formGroup]="crearFacultadForm" (ngSubmit)="crearFacultad(crearFacultadForm.value)">
+      <div class="mb-3">
+        <label for="facultad" class="form-label text-muted">Nombre de la Facultad</label>
+        <input id="facultad"
+               type="text"
+               name="facultad"
+               placeholder="Ej. Facultad de Ingeniería"
+               formControlName="facultad"
+               class="form-control"
+               required>
+      </div>
 
-          <!--   Campo nombre de la facultad   -->
-          <label for="facultad">Facultad</label>
-          <input id="facultad"
-                 type="text"
-                 name="facultad"
-                 placeholder="Escriba el nombre de la facultad aqui"
-                 formControlName="facultad"
-                 class="form-control"
-          >
+      <div class="mb-3">
+        <label for="programa" class="form-label text-muted">Programa Académico</label>
+        <input id="programa"
+               type="text"
+               name="programa"
+               placeholder="Ej. Ingeniería Industrial"
+               formControlName="programa"
+               class="form-control"
+               required>
+      </div>
 
-          <!-- Campo programa del curso -->
-          <label for="programa">Programa</label>
-          <input id="programa"
-                 type="text"
-                 name="programa"
-                 placeholder="Ingrese el programa al que pertenece"
-                 formControlName="programa"
-                 class="form-control"
-          >
-        </div>
-
-        <br>
-
-        <div class="row justify-content-center mt-3">
-          <div class="col-6">
-            <button type="submit" class="btn btn-primary btn-block">Crear facultad</button>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn btn-danger btn-block" (click)="cancelarCrearFacultad()">Cancelar</button>
-          </div>
-        </div>
-
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success w-45">
+          <i class="bi bi-check-circle"></i> Crear
+        </button>
+        <button type="button" class="btn btn-danger w-45" (click)="cancelarCrearFacultad()">
+          <i class="bi bi-x-circle"></i> Cancelar
+        </button>
       </div>
     </form>
   </div>
