@@ -16,8 +16,8 @@ export class ListarFacultadComponent implements OnInit {
   public facultadeselected!: Facultad;
   public selected: boolean = false;
 
-  constructor(private facultadeservice: FacultadService, private routerPath: Router, private router: ActivatedRoute) {
-    this.facultadeservice.getFacultad().subscribe(
+  constructor(private facultadService: FacultadService, private routerPath: Router, private router: ActivatedRoute) {
+    this.facultadService.getFacultades().subscribe(
       (facultades: Array<Facultad>) => {
         this.facultades = facultades;
       }
@@ -62,7 +62,7 @@ export class ListarFacultadComponent implements OnInit {
       confirmButtonText: "Si, borra el Facultad!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.facultadeservice.borrarFacultad(Facultad.codigo_facu).subscribe(() => { // Llama al servicio para eliminar el Facultad
+        this.facultadService.borrarFacultad(Facultad.codigo_facu).subscribe(() => { // Llama al servicio para eliminar el Facultad
           Swal.fire({
             title: "Eliminado!",
             text: "la facultad ha sido eliminada.",
@@ -80,4 +80,6 @@ export class ListarFacultadComponent implements OnInit {
   crearFacultad() {
     this.routerPath.navigate(['/crear']);
   }
+
+  protected readonly Facultad = Facultad;
 }

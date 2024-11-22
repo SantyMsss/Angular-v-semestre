@@ -1,21 +1,33 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Facultad} from "../model/facultad";
-import {map, Observable} from "rxjs";
+import {map, Observable, pipe} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacultadService {
-  private baseUrl: string = "/api/v1/facultad-service"
+  private baseUrl: string = "http://18.218.121.26:8080"
 
   constructor(private httpClient: HttpClient) {
+  }
 
+  getData() {
+    return this.httpClient.get('/api/v1/facultad-service/data');
+  }
+
+  getFacultades(): Observable<Facultad[]> {
+    return this.httpClient.get<Facultad[]>(this.baseUrl+"/facultades")
+      .pipe(
+        map((result:any)=>{
+          console.log(result._embedded.facultades);
+          return result._embedded.facultades;
+        }));
   }
 
 
-  getFacultad(idFacultad: number): Observable<Facultad> {
-    return this.httpClient.get<Facultad>(this.baseUrl + '/facultades/' + idFacultad);
+  getFacultad(codigo_facu: number): Observable<Facultad> {
+    return this.httpClient.get<Facultad>(this.baseUrl + '/facultades/' + codigo_facu);
   }
 
   crearFacultad(facultad: Facultad): Observable<Facultad> {
@@ -26,8 +38,8 @@ export class FacultadService {
     return this.httpClient.put<Facultad>(this.baseUrl+"/facultades/"+facultad.codigo_facu, facultad);
   }
 
-  borrarFacultad(idFacultad: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + "/facultades/" + idFacultad);
+  borrarFacultad(codigo_facu: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + "/facultades/" + codigo_facu);
   }
 
 }
