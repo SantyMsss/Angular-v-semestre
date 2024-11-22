@@ -1,48 +1,138 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Facultades</title>
-  <link rel="stylesheet" href="crear-facultad.component.css"> <!-- Enlace al archivo CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Enlace a Bootstrap -->
-</head>
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Crear Facultad</h3>
+  <form (ngSubmit)="onSubmit()">
+    <!-- Código -->
+    <div class="form-group">
+      <label>Código:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="codigo_facu"
+        [(ngModel)]="facultad.codigo_facu"
+        name="codigo_facu"
+        required>
+    </div>
 
-<div class="card mx-auto shadow-lg" style="max-width: 500px; border-radius: 15px; overflow: hidden;">
-  <div class="card-header text-white text-center py-4" style="background-color: #27ae60;">
-    <h5 class="card-title mb-1">Crear Facultad</h5>
-    <h6 class="card-subtitle text-light">Datos de la Facultad</h6>
-  </div>
-  <div class="card-body p-4">
-    <form [formGroup]="crearFacultadForm" (ngSubmit)="crearFacultad(crearFacultadForm.value)">
-      <div class="mb-3">
-        <label for="facultad" class="form-label text-muted">Nombre de la Facultad</label>
-        <input id="facultad"
-               type="text"
-               name="facultad"
-               placeholder="Ej. Facultad de Ingeniería"
-               formControlName="facultad"
-               class="form-control"
-               required>
-      </div>
+    <!-- Nombre -->
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre_facu"
+        [(ngModel)]="facultad.nombre_facu"
+        name="nombre_facu"
+        required>
+    </div>
 
-      <div class="mb-3">
-        <label for="programa" class="form-label text-muted">Programa Académico</label>
-        <input id="programa"
-               type="text"
-               name="programa"
-               placeholder="Ej. Ingeniería Industrial"
-               formControlName="programa"
-               class="form-control"
-               required>
-      </div>
+    <!-- Decano -->
+    <div class="form-group">
+      <label>Decano:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="decano"
+        [(ngModel)]="facultad.decano"
+        name="decano"
+        required>
+    </div>
 
-      <div class="d-flex justify-content-between">
-        <button type="submit" class="btn btn-success w-45">
-          <i class="bi bi-check-circle"></i> Crear
-        </button>
-        <button type="button" class="btn btn-danger w-45" (click)="cancelarCrearFacultad()">
-          <i class="bi bi-x-circle"></i> Cancelar
-        </button>
-      </div>
-    </form>
-  </div>
+    <!-- Modalidad -->
+    <div class="form-group">
+      <label>Modalidad:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="modalidad"
+        [(ngModel)]="facultad.modalidad"
+        name="modalidad"
+        required>
+    </div>
+
+    <!-- Proyecto de investigación -->
+    <div class="form-group">
+      <label>Proyecto de investigación:</label>
+      <textarea
+        class="form-control"
+        id="proyec_invest_facu"
+        [(ngModel)]="facultad.proyec_invest_facu"
+        name="proyec_invest_facu"
+        required></textarea>
+    </div>
+
+    <!-- Descripción -->
+    <div class="form-group">
+      <label>Descripción:</label>
+      <textarea
+        class="form-control"
+        id="descripcion"
+        [(ngModel)]="facultad.descripcion"
+        name="descripcion"
+        required></textarea>
+    </div>
+
+    <!-- Fecha de creación -->
+    <div class="form-group">
+      <label>Fecha de creación:</label>
+      <input
+        type="date"
+        class="form-control"
+        id="fecha_crea"
+        [(ngModel)]="facultad.fecha_crea"
+        name="fecha_crea"
+        required>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="form-group">
+      <label>Teléfono:</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="telefono"
+        [(ngModel)]="facultad.telefono"
+        name="telefono"
+        required>
+    </div>
+
+    <!-- Correo -->
+    <div class="form-group">
+      <label>Correo:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="correo"
+        [(ngModel)]="facultad.correo"
+        name="correo"
+        required>
+    </div>
+
+    <!-- Programa académico -->
+    <div class="form-group">
+      <label>Programa académico:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="prog_academico"
+        [(ngModel)]="facultad.prog_academico"
+        name="prog_academico"
+        required>
+    </div>
+
+    <!-- Calendario académico -->
+    <div class="form-group">
+      <label>Calendario académico:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="calendar_academico"
+        [(ngModel)]="facultad.calendar_academico"
+        name="calendar_academico"
+        required>
+    </div>
+
+    <!-- Botón de enviar -->
+    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+  </form>
 </div>
+
