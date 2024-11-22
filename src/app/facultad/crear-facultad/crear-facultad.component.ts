@@ -36,7 +36,7 @@ export class CrearFacultadComponent {
    * Metodo que crea una facultad en el servicio
    * @param facultad Facultad a crear
    */
-  crearCurso(facultad: Facultad) {
+  crearFacultad(facultad: Facultad) {
     this.facultadService.crearFacultad(facultad).subscribe(
       (facultad: Facultad) => {
         // console.log(facultad);
