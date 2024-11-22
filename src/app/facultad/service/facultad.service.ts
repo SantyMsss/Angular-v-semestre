@@ -7,7 +7,7 @@ import {map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class FacultadService {
-  private baseUrl: string = "http://18.218.121.26:8080/api/v1/facultad-service"
+  private baseUrl: string = "/api/v1/facultad-service"
 
   constructor(private httpClient: HttpClient) {
 
