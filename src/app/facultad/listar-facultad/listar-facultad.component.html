@@ -1,19 +1,40 @@
-<div class="container">
-  <h2>Lista de Facultades</h2>
- <table class="table table-striped">
-   <thead class="table-dark">
-     <tr>
-       <th>Codigo</th>
-       <th>Nombre</th>
-       <th>Decano</th>
-     </tr>
-   </thead>
-    <tbody>
-      <tr *ngFor="let facultad of facultades">
-        <th>{{facultad.codigo_facu}}</th>
-        <th>{{facultad.nombre_facu}}</th>
-        <th>{{facultad.decano}}</th>
-      </tr>
-    </tbody>
- </table>
-</div>
+<h2 style="color: green; text-align: center;">Lista de Facultades</h2>
+<table class="table" style="background-color: black; color: white;">
+  <thead style="background-color:  #004d40; color: white;">
+  <tr>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Decano</th>
+    <th class="text-center" style="font-family: 'Bodoni MT'"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let facultad of facultades" style="background-color: #333; color: lightgreen;">
+    <td>{{ facultad.codigo_facu }}</td>
+    <td>{{ facultad.nombre_facu }}</td>
+    <td>{{ facultad.decano }}</td>
+    <td class="text-center">
+      <button
+        (click)="editarFacultad(facultad.codigo_facu)"
+        class="btn"
+        style="background-color: green; color: white; border: none;">
+        Editar
+      </button>
+      <button
+        (click)="eliminarFacultad(facultad.codigo_facu)"
+        class="btn"
+        style="background-color: red; color: white; margin-left: 10px; border: none;">
+        Eliminar
+      </button>
+      <button
+        (click)="verDetalleFacultad(facultad.codigo_facu)"
+        class="btn"
+        style="background-color: darkgreen; color: white; margin-left: 10px; border: none;">
+        Detalles
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

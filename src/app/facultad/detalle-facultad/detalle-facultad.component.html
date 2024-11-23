@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabla de Facultad</title>
-  <link rel="stylesheet" href="detalle-facultad.component.css">
-</head>
-<body>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Decano</th>
-    <th scope="col">Modalidad</th>
-    <th scope="col">Proyecto de Investigación</th>
-    <th scope="col">Descripción</th>
-    <th scope="col">Fecha de Creación</th>
-    <th scope="col">Teléfono</th>
-    <th scope="col">Correo</th>
-    <th scope="col">Programa Académico</th>
-    <th scope="col">Calendario Académico</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>{{facultad.decano}}</td>
-    <td>{{facultad.modalidad}}</td>
-    <td>{{facultad.proyec_invest_facu}}</td>
-    <td>{{facultad.descripcion}}</td>
-    <td>{{facultad.fecha_crea}}</td>
-    <td>{{facultad.telefono}}</td>
-    <td>{{facultad.correo}}</td>
-    <td>{{facultad.prog_academico}}</td>
-    <td>{{facultad.calendar_academico}}</td>
-  </tr>
-  </tbody>
-</table>
-</body>
-</html>
+<h3>Detalles de la Facultad</h3>
+<div>
+  <div>
+    <label><b>Código: </b> {{facultad.codigo_facu}}</label>
+  </div>
+  <div>
+    <label><b>Nombre: </b> {{facultad.nombre_facu}}</label>
+  </div>
+  <div>
+    <label><b>Decano: </b> {{ facultad.decano }}</label>
+  </div>
+  <div>
+    <label><b>Modalidad: </b> {{ facultad.modalidad }}</label>
+  </div>
+  <div>
+    <label><b>Proyecto de Investigación: </b> {{ facultad.proyec_invest_facu }}</label>
+  </div>
+  <div>
+    <label><b>Descripción: </b> {{ facultad.descripcion }}</label>
+  </div>
+  <div>
+    <label><b>Fecha de Creación: </b> {{ facultad.fecha_crea | date: 'dd/MM/yyyy' }}</label>
+  </div>
+  <div>
+    <label><b>Teléfono: </b> {{ facultad.telefono }}</label>
+  </div>
+  <div>
+    <label><b>Correo: </b> {{ facultad.correo }}</label>
+  </div>
+  <div>
+    <label><b>Programa Académico: </b> {{ facultad.prog_academico }}</label>
+  </div>
+  <div>
+    <label><b>Calendario Académico: </b> {{ facultad.calendar_academico }}</label>
+  </div>
+</div>

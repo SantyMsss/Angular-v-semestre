@@ -5,11 +5,11 @@ import {EditarFacultadComponent} from './facultad/editar-facultad/editar-faculta
 import {DetalleFacultadComponent} from './facultad/detalle-facultad/detalle-facultad.component';
 
 export const routes: Routes = [
-  { path: 'facultades', component:ListarFacultadesComponent},
-  { path: '', redirectTo: 'facultades', pathMatch: 'full' },
-  { path: 'crear-facultad', component:CrearFacultadComponent},
-  { path: 'editar-facultad/:id', component:EditarFacultadComponent},
-  { path: 'detalle-facultad/:id', component:DetalleFacultadComponent},
+  { path: 'facultades',component:ListarFacultadesComponent},
+  { path: '',redirectTo:'facultades',pathMatch: 'full' },
+  { path: 'crear-facultad',component:CrearFacultadComponent},
+  { path: 'editar-facultad/:id',component:EditarFacultadComponent},
+  { path: 'detalle-facultad/:id',component:DetalleFacultadComponent},
 
 
 
