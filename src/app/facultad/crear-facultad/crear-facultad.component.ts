@@ -1,59 +1,54 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {Facultad} from "../model/facultad";
 import {FacultadService} from "../service/facultad.service";
 import Swal from "sweetalert2";
 import {Router} from "@angular/router";
+import {CommonModule} from '@angular/common';
+import {catchError, tap, throwError} from 'rxjs';
 @Component({
   selector: 'app-crear-facultad',
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './crear-facultad.component.html',
   styleUrl: './crear-facultad.component.css'
 })
-export class CrearFacultadComponent {
-  public crearFacultadForm: FormGroup= new FormGroup({
-    facultad: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    programa: new FormControl('',[Validators.required,Validators.minLength(4)])
-  });
+export class CrearFacultadComponent{
 
-  /**
-   * Constructor del componente
-   * @param router Router de la aplicacion
-   * @param formBuilder Formulario de creacion de facultad
-   * @param facultadService Servicio de facultad para crear una facultad
-   */
-  constructor(public router: Router, public formBuilder: FormBuilder, private facultadService: FacultadService) {
-
+  facultad: Facultad = new Facultad();
+  constructor( private facultadService: FacultadService, private router: Router) {
   }
 
-  /**
-   * Metodo que crea una facultad
-   */
-  cancelarCrearFacultad() {
-    this.router.navigate(['/listar']);
-  }
-
-  /**
-   * Metodo que crea una facultad en el servicio
-   * @param facultad Facultad a crear
-   */
-  crearCurso(facultad: Facultad) {
-    this.facultadService.crearFacultad(facultad).subscribe(
-      (facultad: Facultad) => {
-        // console.log(facultad);
-        Swal.fire(
-          'facultad creada',
-          `la facultad ${facultad.nombre_facu} ha sido creado con exito`,
-          'success'
-        );
-        this.crearFacultadForm.reset();  //Resetea el formulario
-        this.router.navigate(['/listar']);
-      });
-  }
-//regexp: regular expression
   ngOnInit(): void {
-    this.crearFacultadForm = this.formBuilder.group({
-      facultad: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      programa: ['', [Validators.required, Validators.minLength(4)]]
-    });
+
   }
+
+
+  guardarFacultad() {
+    this.facultadService.crearFacultad(this.facultad).pipe(
+      tap(dato => {
+        console.log(dato);
+        this.irListarFacultades();
+      }),
+      catchError(error => {
+        console.log(error);
+        return throwError(() => new Error(error));
+      })
+    ).subscribe();
+  }
+
+
+  irListarFacultades() {
+    this.router.navigate(['/facultades']);
+    Swal.fire('Facultad registrada', `El empleado ${this.facultad.nombre_facu} ha sido registrado con exito`, `success`);
+  }
+
+
+
+  onSubmit() {
+   this.guardarFacultad();
+  }
+
+
+
 }

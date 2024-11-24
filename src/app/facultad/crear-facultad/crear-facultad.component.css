@@ -1,0 +1,61 @@
+/* Estilo para el título */
+h2 {
+  color: green;
+  text-align: center;
+}
+
+/* Estilos generales para la tabla */
+table {
+  background-color: black;
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: darkgreen;
+  color: white;
+}
+
+tbody tr {
+  background-color: #333;
+  color: lightgreen;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #2a2a2a; /* Diferenciar filas pares */
+}
+
+/* Estilos para las celdas */
+td, th {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #444;
+}
+
+/* Estilos para los botones */
+.btn {
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-info {
+  background-color: green;
+}
+
+.btn-danger {
+  background-color: red;
+  margin-left: 10px;
+}
+
+.btn-primary {
+  background-color: darkgreen;
+  margin-left: 10px;
+}
+
+/* Hover effects para los botones */
+.btn:hover {
+  opacity: 0.9;
+}

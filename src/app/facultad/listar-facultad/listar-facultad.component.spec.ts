@@ -7,7 +7,7 @@ describe('ListarFacultadComponent', () => {
   let fixture: ComponentFixture<ListarFacultadComponent>;
 
   beforeEach(async () => {
-     TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [ListarFacultadComponent]
     })
     fixture = TestBed.createComponent(ListarFacultadComponent);

@@ -10,7 +10,7 @@ describe('DetalleFacultadComponent', () => {
     TestBed.configureTestingModule({
       declarations: [DetalleFacultadComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DetalleFacultadComponent);
     component = fixture.componentInstance;
